@@ -10,18 +10,18 @@ var size = require('gulp-size');
 // tasks
 
 gulp.task('transform', function () {
-  var stream = gulp.src('./static/scripts/jsx/*.js')
+  var stream = gulp.src('./fantas/static/scripts/jsx/*.js')
     .pipe(gulpBrowser.browserify({transform: ['reactify']}))
-    .pipe(gulp.dest('./static/scripts/js/'))
+    .pipe(gulp.dest('./fantas/static/scripts/js/'))
     .pipe(size());
   return stream;
 });
 
 gulp.task('del', function () {
-  return del(['./static/scripts/js']);
+  return del(['./fantas/static/scripts/js']);
 });
 
 gulp.task('default', ['del'], function () {
   gulp.start('transform');
-  gulp.watch('./static/scripts/jsx/*.js', ['transform']);
+  gulp.watch('./fantas/static/scripts/jsx/*.js', ['transform']);
 });
