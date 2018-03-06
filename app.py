@@ -35,6 +35,10 @@ def add_numbers_post():
   	      	return "Easy now! Let's keep it simple! 2 numbers with a space between them please"
 
 
+@app.route('/hello')
+def hello():
+    return render_template('hello.html')
+
 @app.route('/shopping_list', methods=['GET','POST'])
 def shopping_list_post():
 	  # --> ['5', '6', '8']
