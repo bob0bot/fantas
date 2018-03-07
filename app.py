@@ -24,7 +24,6 @@ def home_page():
   mydict1['category']='Adventure'
   mydict1['name']='poketcc'
   obj.append(mydict1)
-  print obj
   return render_template('index.html',lst=obj)
 
 @app.route('/<name>')
