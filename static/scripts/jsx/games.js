@@ -7,7 +7,6 @@
 //       ResultItem
 
 const ResultItem = ({ category, name }) =>
-
   <div className="col-md-6">
     <div className={"category--"+category+" card flex-md-row mb-4 box-shadow h-md-250"}>
     
@@ -81,21 +80,28 @@ class Main extends React.Component {
     });
   }
   render() {
+
+    console.log("scope updateds!");
     return <UI setCategory={this.setCategory} state={this.state} />;
   }
 }
 
 // data
-const PRODUCTS = [
-  { category: "Romantic", name: "rommma" },
-  { category: "Adventure", name: "funn" },
-  { category: "Fantasy", name: "fantaa" },
-  { category: "DressUp", name: "yayy" },
-  { category: "Public", name: "centr" },
-  { category: "Submission", name: "Own" },
-  { category: "Party", name: "ibiza" },
-  { category: "Cute", name: "cuddle" }
-];
+
+// const PRODUCTS2 = [
+//   { category: "Romantic", name: "rommma" },
+//   { category: "Adventure", name: "funn" },
+//   { category: "Fantasy", name: "fantaa" },
+//   { category: "DressUp", name: "yayy" },
+//   { category: "Public", name: "centr" },
+//   { category: "Submission", name: "Own" },
+//   { category: "Party", name: "ibiza" },
+//   { category: "Cute", name: "cuddle" }
+// ];
+
+challengeDatafromServer =JSON.parse(cdta);
+const PRODUCTS = challengeDatafromServer;
+
 
 // get unique category items
 const uniqueItems = (x, i, a) => a.indexOf(x) === i;

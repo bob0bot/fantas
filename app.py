@@ -11,7 +11,21 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def home_page():
-	return render_template('index.html')
+  obj = []
+  mydict1={}
+  mydict1['category']='Romantic'
+  mydict1['name']='Romitbaby'
+  obj.append(mydict1)
+  mydict1={}
+  mydict1['category']='Adventure'
+  mydict1['name']='funn'
+  obj.append(mydict1)
+  mydict1={}
+  mydict1['category']='Adventure'
+  mydict1['name']='poketcc'
+  obj.append(mydict1)
+  print obj
+  return render_template('index.html',lst=obj)
 
 @app.route('/<name>')
 def profile(name):
