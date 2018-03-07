@@ -39,6 +39,10 @@ def add_numbers_post():
 def hello():
     return render_template('hello.html')
 
+@app.route('/games')
+def games():
+    return render_template('games.html')
+
 @app.route('/shopping_list', methods=['GET','POST'])
 def shopping_list_post():
 	  # --> ['5', '6', '8']

@@ -1,0 +1,260 @@
+/* stylelint-disable selector-list-comma-newline-after */
+
+.blog-header {
+  line-height: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.blog-header-logo {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: 2.25rem;
+}
+
+.blog-header-logo:hover {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+.display-4 {
+  font-size: 2.5rem;
+}
+@media (min-width: 768px) {
+  .display-4 {
+    font-size: 3rem;
+  }
+}
+
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-scroller .nav-link {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: .875rem;
+}
+
+.card-img-right {
+  height: 100%;
+  border-radius: 0 3px 3px 0;
+}
+
+
+.flex-auto {
+  -ms-flex: 0 0 auto;
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+}
+
+.h-250 { height: 250px; }
+@media (min-width: 768px) {
+  .h-md-250 { height: 250px; }
+}
+
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+/*
+ * Blog name and description
+ */
+.blog-title {
+  margin-bottom: 0;
+  font-size: 2rem;
+  font-weight: 400;
+}
+.blog-description {
+  font-size: 1.1rem;
+  color: #999;
+}
+
+@media (min-width: 40em) {
+  .blog-title {
+    font-size: 3.5rem;
+  }
+}
+
+/* Pagination */
+.blog-pagination {
+  margin-bottom: 4rem;
+}
+.blog-pagination > .btn {
+  border-radius: 2rem;
+}
+
+/*
+ * Blog posts
+ */
+.blog-post {
+  margin-bottom: 4rem;
+}
+.blog-post-title {
+  margin-bottom: .25rem;
+  font-size: 2.5rem;
+}
+.blog-post-meta {
+  margin-bottom: 1.25rem;
+  color: #999;
+}
+
+/*
+ * Footer
+ */
+.blog-footer {
+  padding: 2.5rem 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: .05rem solid #e5e5e5;
+}
+.blog-footer p:last-child {
+  margin-bottom: 0;
+}
+
+.box,
+button {
+  font-family: 'Open Sans', sans-serif;
+  border: none;
+  border-radius: 3px;
+  padding: .5rem;
+  margin: .15rem;
+/*   float: left; */
+  background-color: rgba(0, 20, 50, 0.05);
+  cursor: pointer;
+}
+
+
+.category--fashion,
+.btn-fashion {
+  background-color: orange;
+}
+
+.category--design,
+.btn-design {
+  background-color: green;
+  color: white;
+}
+
+.category--leisure,
+.btn-leisure {
+  background-color: purple;
+  color: white;
+}
+
+.category--entertainment,
+.btn-entertainment {
+  background-color: pink;
+}
+
+.btn-all {
+  background-color:  rgba(181, 21, 53, 1);
+  color:white;
+}
+
+.category__list-item {
+  background-color: white;
+}
+
+
+.circle{
+  border:1px solid grey;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  margin:0 0 0 1rem;
+}
+
+.aretags
+{
+  padding-bottom: 5px;
+}
+
+
+
+.category--Romantic,
+.btn-Romantic {
+  background-color: rgba(249, 89, 121, 0.5);
+  border:0px;
+  border-left: 8px solid rgba(249, 89, 121, 1);
+}
+
+.category--Adventure,
+.btn-Adventure {
+  /*background-color: rgba(158,19,51,0.5);*/
+  background-color: rgba(158,19,51,0.3);
+  color: white;
+  border:0px;
+  border-left: 8px solid rgba(158,19,51,1);
+}
+
+.category--Fantasy,
+.btn-Fantasy {
+  background-color: rgba(201, 0, 132, 0.3);
+  color: white;
+  border:0px;
+  border-left: 8px solid rgba(201, 0, 132, 1);
+}
+
+.category--DressUp,
+.btn-DressUp {
+  background-color: rgba(157,32,83, 0.5);
+  border:0px;
+  color:white;
+  border-left: 8px solid rgba(157,32,83, 1);
+}
+
+.category--Submission,
+.btn-Submission {
+  background-color: rgba(69, 7, 47, 0.5);
+  border:0px;
+  color:white;
+  border-left: 8px solid rgba(69, 7, 47, 1);
+}
+
+.category--Party,
+.btn-Party {
+  background-color: rgba(255, 84, 78, 0.5);
+  border:0px;
+  border-left: 8px solid rgba(255, 84, 78, 1);
+}
+
+.category--Cute,
+.btn-Cute {
+  background-color: rgba(246, 136, 61, 0.5);
+  border:0px;
+  border-left: 8px solid rgba(246, 136, 61, 1);
+}
+
+
+.category--Public,
+.btn-Public {
+  background-color: rgba(230, 143, 119, 0.5);
+  border:0px;
+  border-left: 8px solid rgba(230, 143, 119, 1);
+}
+
+.text-cat
+{
+  color:black;
+}
