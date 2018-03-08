@@ -3,6 +3,7 @@ import datetime
 import pytz # timezone 
 import requests
 import os
+from pymongo import MongoClient
 
 
 
@@ -29,6 +30,16 @@ def home_page():
 @app.route('/<name>')
 def profile(name):
 	return render_template('index.html', name=name)
+
+def addDataToMongo():
+  db.Employees.insert_one(
+        {
+        "id": employeeId,
+        "name":employeeName,
+        "age":employeeAge,
+        "country":employeeCountry
+        })
+
 
 
 @app.route('/add_numbers', methods=['GET','POST'])
