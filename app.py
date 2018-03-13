@@ -51,7 +51,7 @@ def home_page():
     coll['boostval']=document['boostval']
     coll['imgUrl']=document['imgUrl']
     obj.append(coll)
-    print obj
+    #print obj
 
 
   
