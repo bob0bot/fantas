@@ -6,7 +6,7 @@
 }
 
 .blog-header-logo {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  /*font-family: "Playfair Display", Georgia, "Times New Roman", serif;*/
   font-size: 2.25rem;
 }
 
@@ -14,9 +14,9 @@
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/*h1, h2, h3, h4, h5, h6 {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-}
+}*/
 
 .display-4 {
   font-size: 2.5rem;
@@ -74,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
 .border-top { border-top: 1px solid #e5e5e5; }
 .border-bottom { border-bottom: 1px solid #e5e5e5; }
 
-.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, 0.4); }
 
 /*
  * Blog name and description
@@ -202,7 +202,7 @@ button {
 .category--Adventure,
 .btn-Adventure {
   /*background-color: rgba(158,19,51,0.5);*/
-  background-color: rgba(158,19,51,0.3);
+  background-color: rgba(158,19,51,0.7);
   color: white;
   border:0px;
   border-left: 8px solid rgba(158,19,51,1);
@@ -256,10 +256,13 @@ button {
 
 .text-cat
 {
-  color:black;
+  /*color:black;*/
 }
 
 .wap
 {
   cursor: pointer;
+  background: rgba(255, 255, 255, 0.8);
+  padding:7px;
+  border-radius: 4px 4px 4px 4px;
 }
