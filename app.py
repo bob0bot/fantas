@@ -93,20 +93,20 @@ def home_page():
 # def profile(name):
 # 	return render_template('index.html', name=name)
 
-def addDataToMongo():
-  #M0ng0
+# def addDataToMongo():
+#   #M0ng0
   
-  print "Entered"
-  client = MongoClient(app.config['MONGO_URI'])
-  db=client.get_default_database()
-  collection = db["tests"]
-  test={}
-  test["name"] = "pulk"
-  test["loc"] = "Hyd"
-  print "Obj ready"
-  print "Inserting-----------"
-  collection.insert(test)
-  print "Inserted-----------"
+#   print "Entered"
+#   client = MongoClient(app.config['MONGO_URI'])
+#   db=client.get_default_database()
+#   collection = db["tests"]
+#   test={}
+#   test["name"] = "pulk"
+#   test["loc"] = "Hyd"
+#   print "Obj ready"
+#   print "Inserting-----------"
+#   collection.insert(test)
+#   print "Inserted-----------"
 
 
 
