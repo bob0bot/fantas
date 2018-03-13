@@ -13,14 +13,13 @@ const ResultItem = ({ category, tagline, level, daretext,imgUrl }) =>
        <div className="card-body d-flex flex-column align-items-start">
        <strong className="d-inline-block mb-2 text-cat">{category}</strong>
        <h3 className="mb-0">
-                <a className="card-text"> {tagline}
-          </a>
+                <p className="card-text"> {tagline}</p>
         </h3>
         <br/>
-        <p className="card-text mb-auto">{daretext}.</p>
+        <p className="card-text mb-auto">{daretext}</p>
         <div className="mb-1 text-muted wap"><a href={"https://api.whatsapp.com/send?&text="+daretext+". *Your turn* Find your pick, here: https://fantas1.herokuapp.com"}><img src='./static/img/24w.png'/></a> </div>
       </div>
-      <img className="card-img-right flex-auto d-none d-md-block" src={imgUrl} alt="Card image "/>
+      <img className="card-img-right flex-auto d-none d-md-block" src={imgUrl} alt="image loading.."/>
     </div>
   </div>;
 
