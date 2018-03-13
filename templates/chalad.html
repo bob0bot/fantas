@@ -1,0 +1,13 @@
+<form id="regform" method="POST" action="{{ url_for('chalad') }}">
+	<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+  <dl>
+    <div>{{ form.category.label }}: {{ form.category }}</div>
+    <div>{{ form.tagline.label }}: {{ form.tagline }}</div>
+    <div>{{ form.level.label }}: {{ form.level }}</div>
+    <div>{{ form.daretext.label }}: {{ form.daretext }}</div>
+    <div>{{ form.status.label }}: {{ form.status }}</div>
+    <div>{{ form.boostval.label }}: {{ form.boostval }}</div>
+    <div>{{ form.imgUrl.label }}: {{ form.imgUrl }}</div>
+  </dl>
+  <p><input type=submit value=Save>
+</form>

@@ -6,20 +6,20 @@
 //     Result
 //       ResultItem
 
-const ResultItem = ({ category, name }) =>
+const ResultItem = ({ category, tagline, level, daretext,imgUrl }) =>
   <div className="col-md-6">
     <div className={"category--"+category+" card flex-md-row mb-4 box-shadow h-md-250"}>
     
        <div className="card-body d-flex flex-column align-items-start">
        <strong className="d-inline-block mb-2 text-cat">{category}</strong>
        <h3 className="mb-0">
-                <a className="text-dark" href="#"> {name}
+                <a className="text-dark" href="#"> {tagline}
           </a>
         </h3>
-        <div className="mb-1 text-muted">Level </div>
-        <p className="card-text mb-auto">Some description here, the actual challenge.</p>
+        <p className="card-text mb-auto">{daretext}.</p>
+        <div className="mb-1 text-muted wap"><a href={"https://api.whatsapp.com/send?&text= My dare to you: "+daretext+". *Your turn* Find your pick, here: https://fantas1.herokuapp.com"}><img src='./static/img/24w.png'/></a> </div>
       </div>
-      <img className="card-img-right flex-auto d-none d-md-block" src="http://via.placeholder.com/200x250" alt="Card image cap"/>
+      <img className="card-img-right flex-auto d-none d-md-block" src={imgUrl} alt="Card image "/>
     </div>
   </div>;
 
@@ -29,8 +29,8 @@ const Result = ({ state: { products, displayCategory } }) =>
       .filter(({ category }) =>
           displayCategory === category || displayCategory === "all"
       )
-      .map(({ category, name }) =>
-        <ResultItem category={category} name={name} />
+      .map(({ category, tagline, level, daretext, imgUrl }) =>
+        <ResultItem category={category} tagline={tagline} level={level} daretext={daretext} imgUrl={imgUrl}/>
       )}
   </div>;
 

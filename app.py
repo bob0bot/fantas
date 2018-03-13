@@ -4,126 +4,146 @@ import pytz # timezone
 import requests
 import os
 from pymongo import MongoClient
-
+from wtforms import Form, TextField, validators, StringField,IntegerField,fields
+from flask_wtf.csrf import CSRFProtect
+from flask_wtf.csrf import CSRFError
+from flask.ext.login import LoginManager
+from flask.ext.login import login_user , logout_user , current_user , login_required
 
 
 app = Flask(__name__)
 
+app.config['MONGO_URI'] = 'mongodb://heroku_j3fj5sp6:52bhbhggq8dpnsrlob9a7fnh0t@ds261828.mlab.com:61828/heroku_j3fj5sp6'
+app.config['SECRET_KEY'] = 'c473c394c686e8eaa3d609b55b1c0ed3868011d82f549198'
+WTF_CSRF_ENABLED = True
+WTF_CSRF_SECRET_KEY = "\xe4,\x03\xf6\xc7\xcdVC\x98]\xce\x0e:\x1c\x8a\xbd\x03o\x91a\x90U\x0bK"
+app.secret_key = "\x7f\xe0g\xe9\xc7u\xe2\x9a\xc4\xe9\x17T\r\xa4=\xc57\x82\x0em(\x88b\xa3"
+
+csrf = CSRFProtect(app)
+
+
+class ChalForm(Form):
+    category = StringField('Category', [validators.Length(min=4, max=25)])
+    tagline = StringField('Tagline', [validators.Length(min=6, max=35)])
+    level = IntegerField('Level')
+    daretext = StringField('Dare Text', [validators.Length(min=6, max=128)])
+    status = StringField('status')
+    boostval = IntegerField('Boost Points')
+    imgUrl = StringField('Img Url',[validators.Length(min=6, max=128)])
+
 
 @app.route('/', methods=['GET'])
 def home_page():
+
+  client = MongoClient(app.config['MONGO_URI'])
+  db=client.get_default_database()
+  collection = db["challenges"]
+  cursor = collection.find({})
   obj = []
-  mydict1={}
-  mydict1['category']='Romantic'
-  mydict1['name']='Romitbaby'
-  obj.append(mydict1)
-  mydict1={}
-  mydict1['category']='Adventure'
-  mydict1['name']='funn'
-  obj.append(mydict1)
-  mydict1={}
-  mydict1['category']='Adventure'
-  mydict1['name']='poketcc'
-  obj.append(mydict1)
+  mydick ={}
+  for document in cursor:
+    coll={}
+    coll['category']=document['category']
+    coll['tagline']=document['tagline']
+    coll['level']=document['level']
+    coll['daretext']=document['daretext']
+    coll['status']=document['status']
+    coll['boostval']=document['boostval']
+    coll['imgUrl']=document['imgUrl']
+    obj.append(coll)
+    print obj
+
+
+  
+  # obj2 = []
+  # mydict1={}
+  # mydict1['category']='Romantic'
+  # mydict1['name']='TapitBaby'
+  # obj2.append(mydict1)
+  # mydict1={}
+  # mydict1['category']='Adventure'
+  # mydict1['name']='Rocky'
+  # obj2.append(mydict1)
+  # mydict1={}
+  # mydict1['category']='Adventure'
+  # mydict1['name']='Tocket'
+  # obj2.append(mydict1)
+  # chal={}
+  # chal["category"]="Romantic"
+  # chal["tagline"]=""
+  # chal["level"]=
+  # chal["daretext"]=
+  # chal["status"]=
+  # chal["boostval"]=
+  # chal["imgUrl"]=
+  # coll = {}
+  # coll['category']="Adventure"
+  # coll['tagline']="What you see second in adventure"
+  # coll['level']="1"
+  # coll['daretext']="Some next level shit"
+  # coll['status']="A"
+  # coll['boostval']="40"
+  # coll['imgUrl']=""
+  # collection.insert(coll)
+
+
   return render_template('index.html',lst=obj)
 
-@app.route('/<name>')
-def profile(name):
-	return render_template('index.html', name=name)
+# @app.route('/<name>')
+# def profile(name):
+# 	return render_template('index.html', name=name)
 
 def addDataToMongo():
-  db.Employees.insert_one(
-        {
-        "id": employeeId,
-        "name":employeeName,
-        "age":employeeAge,
-        "country":employeeCountry
-        })
+  #M0ng0
+  
+  print "Entered"
+  client = MongoClient(app.config['MONGO_URI'])
+  db=client.get_default_database()
+  collection = db["tests"]
+  test={}
+  test["name"] = "pulk"
+  test["loc"] = "Hyd"
+  print "Obj ready"
+  print "Inserting-----------"
+  collection.insert(test)
+  print "Inserted-----------"
 
-
-
-@app.route('/add_numbers', methods=['GET','POST'])
-def add_numbers_post():
-	  # --> ['5', '6', '8']
-	  # print(type(request.form['text']))
-	  if request.method == 'GET':
-	  	return render_template('add_numbers.html')
-	  elif request.method == 'POST':
-  	      print(request.form['text'].split())
-  	      total = 0
-  	      try:
-  	      	for str_num in request.form['text'].split():
-  	      		total += int(str_num)
-  	      	return render_template('add_numbers.html', result=str(total))
-  	      except ValueError:
-  	      	return "Easy now! Let's keep it simple! 2 numbers with a space between them please"
 
 
 @app.route('/hello')
 def hello():
     return render_template('hello.html')
 
-@app.route('/games')
-def games():
-    return render_template('games.html')
 
-@app.route('/shopping_list', methods=['GET','POST'])
-def shopping_list_post():
-	  # --> ['5', '6', '8']
-	  # print(type(request.form['text']))
-
-    if request.method == 'GET':
-      return render_template('shopping_list.html')
-    elif request.method == 'POST':
-          print(request.form['text'].split())
-          
-          shop_list = []
-          try:
-            for item in request.form['text'].split():
-              
-              shop_list.append(item)
-
-              
-              
-            return render_template('shopping_list.html', result="\n".join([str(item) for item in shop_list]))
-          except ValueError:
-            return "Easy now! Let's keep it simple! Just words with a space between them"
-          
-  	      
-@app.route('/time', methods=['GET','POST'])
-def time_post():
-    # --> ['5', '6', '8']
-    # print(type(request.form['text']))
-
-    if request.method == 'GET':
-      return render_template('time.html')
-    elif request.method == 'POST':
-          print(request.form['text'].split())
-          
-          for item in request.form['text'].split():
-            answer = (datetime.datetime.now(pytz.timezone("Europe/Dublin")).strftime('Time = ' + '%H:%M:%S' + ' GMT ' + ' Year = ' + '%d-%m-%Y'))
-            #answer = datetime.datetime.now().strftime('Time == ' + '%H:%M:%S' + ' Year == ' + '%d-%m-%Y')
-            #answer = datetime.datetime.now().strftime('%Y-%m-%d \n %H:%M:%S')
-
-              
-              
-            return render_template('time.html', result=answer)
-
-         
-
-@app.route('/python_apps')
-def python_apps_page():
-	# testing stuff
-	return render_template('python_apps.html')
+# @app.route('/chalad', methods=['GET', 'POST'])
+# def chalad():
+#     form = ChalForm(request.form)
+#     if request.method == 'POST' and form.validate():
+#         pest = Pest(form.category.data, form.tagline.data,
+#                     form.level.data, form.daretext.data, form.status.data, 
+#                     form.boostval.data, form.imgUrl.data)
+#         client = MongoClient(app.config['MONGO_URI'])
+#         db=client.get_default_database()
+#         collection = db["pests"]
+#         collection.insert(pest)
+#         print "Inserted-----------"
+#         flash('Thanks for adding')
+#         return redirect(url_for('login'))
+#     return render_template('chalad.html', form=form)
 
 
-@app.route('/contact')
-def contact():
-	return render_template('contact.html')
 
-@app.route('/blog', methods=['GET'])
-def blog_page():
-  return render_template('blog.html')
+
+@app.errorhandler(CSRFError)
+def handle_csrf_error(e):
+    return render_template('crsf.html', reason=e.description), 400
+
+
+@app.route('/mchef')
+def mchef():
+
+    return render_template('mchef.html')
+
 
 app.run(host=os.getenv('IP', '0.0.0.0'), port = int(os.getenv('PORT', 8080)))
 

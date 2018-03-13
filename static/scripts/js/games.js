@@ -7,20 +7,20 @@
 //     Result
 //       ResultItem
 
-const ResultItem = ({ category, name }) =>
+const ResultItem = ({ category, tagline, level, daretext,imgUrl }) =>
   React.createElement("div", {className: "col-md-6"}, 
     React.createElement("div", {className: "category--"+category+" card flex-md-row mb-4 box-shadow h-md-250"}, 
     
        React.createElement("div", {className: "card-body d-flex flex-column align-items-start"}, 
        React.createElement("strong", {className: "d-inline-block mb-2 text-cat"}, category), 
        React.createElement("h3", {className: "mb-0"}, 
-                React.createElement("a", {className: "text-dark", href: "#"}, " ", name
+                React.createElement("a", {className: "text-dark", href: "#"}, " ", tagline
           )
         ), 
-        React.createElement("div", {className: "mb-1 text-muted"}, "Level "), 
-        React.createElement("p", {className: "card-text mb-auto"}, "Some description here, the actual challenge.")
+        React.createElement("p", {className: "card-text mb-auto"}, daretext, "."), 
+        React.createElement("div", {className: "mb-1 text-muted wap"}, React.createElement("a", {href: "https://api.whatsapp.com/send?&text= My dare to you: "+daretext+". *Your turn* Find your pick, here: https://fantas1.herokuapp.com"}, React.createElement("img", {src: "./static/img/24w.png"})), " ")
       ), 
-      React.createElement("img", {className: "card-img-right flex-auto d-none d-md-block", src: "http://via.placeholder.com/200x250", alt: "Card image cap"})
+      React.createElement("img", {className: "card-img-right flex-auto d-none d-md-block", src: imgUrl, alt: "Card image "})
     )
   );
 
@@ -30,8 +30,8 @@ const Result = ({ state: { products, displayCategory } }) =>
       .filter(({ category }) =>
           displayCategory === category || displayCategory === "all"
       )
-      .map(({ category, name }) =>
-        React.createElement(ResultItem, {category: category, name: name})
+      .map(({ category, tagline, level, daretext, imgUrl }) =>
+        React.createElement(ResultItem, {category: category, tagline: tagline, level: level, daretext: daretext, imgUrl: imgUrl})
       )
   );
 

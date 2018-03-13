@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Unauthorized{% endblock %}
+
+{% block css %}
+<style type="text/css">
+  body{
+    padding-top: 40px;
+  }
+  h1, p{
+    text-align:center;
+  }
+  h1{
+    font-size:64px;
+    margin:75px 0 50px;
+  }
+  p{
+    font-size:24px;
+    margin:15px 0;
+  }
+</style>
+{% endblock %}
+
+{% block main %}
+<h1>Gotcha!</h1>
+<p>Stop doing hanky panky stuff. It's not legal. </p>
+<p>Why? {{reason}}
+<a href="{{ url_for('logout') }}">Why don't you retry? </a>?</p>
+{% endblock %}
