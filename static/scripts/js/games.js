@@ -18,7 +18,7 @@ const ResultItem = ({ category, tagline, level, daretext,imgUrl }) =>
         ), 
         React.createElement("br", null), 
         React.createElement("p", {className: "card-text mb-auto"}, daretext), 
-        React.createElement("div", {className: "mb-1 text-muted wap"}, React.createElement("a", {href: "https://api.whatsapp.com/send?&text="+daretext+". *Your turn* Find your pick, here: https://fantas1.herokuapp.com"}, React.createElement("img", {src: "./static/img/24w.png"})), " ")
+        React.createElement("div", {className: "mb-1 text-muted wap"}, React.createElement("a", {href: "https://api.whatsapp.com/send?&text="+daretext+". *Your turn* Find your pick, here: https://www.nottyducks.com"}, React.createElement("img", {src: "./static/img/24w.png"})), " ")
       ), 
       React.createElement("img", {className: "card-img-right flex-auto d-none d-md-block", src: imgUrl, alt: "image loading.."})
     )

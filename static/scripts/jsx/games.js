@@ -17,7 +17,7 @@ const ResultItem = ({ category, tagline, level, daretext,imgUrl }) =>
         </h3>
         <br/>
         <p className="card-text mb-auto">{daretext}</p>
-        <div className="mb-1 text-muted wap"><a href={"https://api.whatsapp.com/send?&text="+daretext+". *Your turn* Find your pick, here: https://fantas1.herokuapp.com"}><img src='./static/img/24w.png'/></a> </div>
+        <div className="mb-1 text-muted wap"><a href={"https://api.whatsapp.com/send?&text="+daretext+". *Your turn* Find your pick, here: https://www.nottyducks.com"}><img src='./static/img/24w.png'/></a> </div>
       </div>
       <img className="card-img-right flex-auto d-none d-md-block" src={imgUrl} alt="image loading.."/>
     </div>
