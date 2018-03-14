@@ -273,3 +273,7 @@ button {
   padding:7px;
   border-radius: 4px 4px 4px 4px;
 }
+
+.card-body {
+    padding: 0.25rem;
+}
