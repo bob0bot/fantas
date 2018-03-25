@@ -134,7 +134,16 @@ def hello():
 
 @app.route('/musicbg')
 def musigbg():
-    return render_template('voice.xml')
+
+  values = [
+        {'Play': 'http://demo.twilio.com/docs/classic.mp3'}
+    ]
+
+    template = render_template('voice.xml', values=values)
+    response = make_response(template)
+    response.headers['Content-Type'] = 'application/xml'
+
+    return response
 
 
 @app.errorhandler(CSRFError)
