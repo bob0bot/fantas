@@ -138,11 +138,8 @@ def musigbg():
         {'url': 'http://demo.twilio.com/docs/classic.mp3'}
     ]
 
-  template = render_template('voice.xml', values=values)
-  response = make_response(template)
-  response.headers['Content-Type'] = 'application/xml'
-
-  return response
+  return render_template('voice.xml', values=values)
+  
 
 
 @app.errorhandler(CSRFError)
