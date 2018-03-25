@@ -132,7 +132,7 @@ def hello():
 #     return render_template('chalad.html', form=form)
 
 
-@app.route('/voice.xml')
+@app.route('/voice.xml', methods=['GET','POST'])
 def musigbg():
   values = [
         {'url': 'http://demo.twilio.com/docs/classic.mp3'}
