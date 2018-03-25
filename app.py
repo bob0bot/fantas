@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, make_response
 import datetime
 import pytz # timezone 
 import requests
@@ -132,13 +132,17 @@ def hello():
 #     return render_template('chalad.html', form=form)
 
 
-@app.route('/musicbg')
+@app.route('/voice.xml')
 def musigbg():
   values = [
         {'url': 'http://demo.twilio.com/docs/classic.mp3'}
     ]
 
-  return render_template('voice.xml', values=values)
+  template = render_template('voice.xml', values=values)
+  response = make_response(template)
+  response.headers['Content-Type'] = 'application/xml'
+
+  return response
   
 
 
