@@ -132,6 +132,9 @@ def hello():
 #     return render_template('chalad.html', form=form)
 
 
+@app.route('/musicbg')
+def musigbg():
+    return render_template('voice.xml')
 
 
 @app.errorhandler(CSRFError)
